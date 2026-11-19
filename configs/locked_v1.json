@@ -1,0 +1,67 @@
+{
+  "version": "v1.0.0",
+  "method": "RUPR + frozen Reader + RADC",
+  "reader": "Qwen/Qwen3.5-9B",
+  "reader_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "reranker": "Qwen/Qwen3-VL-Reranker-8B",
+  "reranker_revision": "b212dc8c91a8164aef1ea2de9c1a867611e75c04",
+  "clip": "OpenAI CLIP ViT-L/14",
+  "clip_sha256": "b8cca3fd41ae0c99ba7e8951adf17d267cdb84cd88be6f7c2e0eca1737a03836",
+  "reader_config": {
+    "dtype": "bfloat16",
+    "attention": "sdpa",
+    "min_pixels": 65536,
+    "max_pixels": 16777216,
+    "max_input_tokens": 32768,
+    "generation": {
+      "max_new_tokens": 16,
+      "do_sample": false
+    },
+    "score_prefix": "{\"label\":\"",
+    "score_labels": [
+      "real",
+      "fake"
+    ],
+    "seed": 42
+  },
+  "radc_parameters": 1162709,
+  "queries": 3,
+  "threshold": 0,
+  "enable_thinking": false,
+  "ranking_objective": "absolute Plackett-Luce preference margin + conditional KL",
+  "ranking": {
+    "beta": 0.1,
+    "temperature": 1.0,
+    "margin": 1.0,
+    "keep_kl_weight": 1.0,
+    "repair_kl_weight": 0.03
+  },
+  "calibration_training": {
+    "initial_fit": 34852,
+    "relation_fit": 50926,
+    "seed": 17,
+    "batch_size": 64,
+    "learning_rate": 0.0005,
+    "adam_betas": [
+      0.9,
+      0.95
+    ],
+    "weight_decay": 0.0,
+    "dropout": 0.1,
+    "max_epochs": 30,
+    "patience": 10,
+    "selected_epoch": 11,
+    "preservation_penalty": 0.01,
+    "expert_penalty": 0.01,
+    "staged_training": true
+  },
+  "model_selection": "DriftBench16000 development Macro-F1; labels never enter gradients; MMFakeBench never selects weights",
+  "artifacts": {
+    "radc.pt": "173d92a94a2a1fbf1148443de5b04f868cc401ec17106602fd671ca1c87ff4c9",
+    "projection.npz": "c219c96910ce2e82852248d3f220d0f566c4ab7b4a3b06a0e1b2b16dc2d38f76",
+    "rupr/adapter_config.json": "5fce563a4ecdec75446d8a34967254cd5950c47575cbcb12d97a5c85452f512d",
+    "rupr/adapter_model.safetensors": "66e53e115d1523924368cfb9390daa35482ec4230f395d182b52d9ac589b543d"
+  },
+  "weights_repo": "DavideChen/RUPR-RADC",
+  "weights_revision": "880dd8d5f53da571c6ed04e50ad4c8e3df36f665"
+}

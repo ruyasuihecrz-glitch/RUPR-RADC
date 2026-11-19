@@ -1,0 +1,4 @@
+RUPR-RADC
+Copyright 2026 RUPR-RADC contributors.
+
+The frozen Qwen Reader, Qwen reranker and OpenAI CLIP are separately licensed upstream models and are not redistributed here. The optional official Qwen reranker helper is supplied from the user's upstream model checkout. CLIP preprocessing follows the published AITR/CCN recipe; see docs/METHOD.md. All third-party dataset rights remain with their owners.
