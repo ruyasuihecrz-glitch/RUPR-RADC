@@ -63,5 +63,5 @@
     "rupr/adapter_model.safetensors": "66e53e115d1523924368cfb9390daa35482ec4230f395d182b52d9ac589b543d"
   },
   "weights_repo": "DavideChen/RUPR-RADC",
-  "weights_revision": "880dd8d5f53da571c6ed04e50ad4c8e3df36f665"
+  "weights_revision": "ef7c7c101c76c856073a7c3be589439ba3e62047"
 }
